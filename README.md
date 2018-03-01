@@ -11,6 +11,7 @@
 * Profit! :)
 
 ### Links
+* **Site:** [vkstatsapp.swiftof.ru](http://vkstatsapp.swiftof.ru)
 * **VK Group:** [vk.com/vkstatsapp](https://vk.com/vkstatsapp)
 * **Indev:** [vk.com/vkstatsapp_testers](https://vk.com/vkstatsapp_testers)
 * **Author:** [vk.com/lonadelsi](https://vk.com/lonadelsi)

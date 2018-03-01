@@ -60,53 +60,53 @@
       <file leaf-file-name="mainFunctions.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mainFunctions.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="249">
-              <caret line="365" column="11" lean-forward="true" selection-start-line="365" selection-start-column="11" selection-end-line="365" selection-end-column="11" />
+            <state relative-caret-position="504">
+              <caret line="379" column="0" lean-forward="true" selection-start-line="379" selection-start-column="0" selection-end-line="379" selection-end-column="0" />
               <folding>
-                <marker date="1519886315836" expanded="true" signature="1050:1469" ph="CREATE TABLE... users" />
-                <marker date="1519886315836" expanded="true" signature="1116:1151" ph="/* Основная " />
-                <marker date="1519886315836" expanded="true" signature="1528:1754" ph="CREATE TABLE... settings" />
-                <marker date="1519886315836" expanded="true" signature="1596:1622" ph="/* Таблица к... " />
-                <marker date="1519886315836" expanded="true" signature="1813:2230" ph="CREATE TABLE... history" />
-                <marker date="1519886315836" expanded="true" signature="1880:1923" ph="/* Таблица д... " />
-                <marker date="1519886315836" expanded="true" signature="2289:2319" ph="/* Переход с... " />
-                <marker date="1519886315836" expanded="true" signature="2348:2408" ph="UPDATE `history`... " />
-                <marker date="1519886315836" expanded="true" signature="2703:2763" ph="ALTER TABLE `history`... " />
-                <marker date="1519886315836" expanded="true" signature="2848:2916" ph="ALTER TABLE `history`... " />
-                <marker date="1519886315836" expanded="true" signature="9307:9424" ph="INSERT INTO history... " />
-                <marker date="1519886315836" expanded="true" signature="14590:14616" ph="SELECT count... users" />
-                <marker date="1519886315836" expanded="true" signature="14700:14742" ph="SELECT * FRO... users" />
-                <marker date="1519886315836" expanded="true" signature="17465:17584" ph="INSERT INTO history... " />
-                <marker date="1519886315836" expanded="true" signature="17624:17662" ph="SELECT count... users" />
-                <marker date="1519886315836" expanded="true" signature="17744:17807" ph="INSERT INTO users... " />
-                <marker date="1519886315836" expanded="true" signature="17840:17989" ph="UPDATE `users`... " />
-                <marker date="1519886315836" expanded="true" signature="29898:30022" ph="INSERT INTO history... " />
-                <marker date="1519886315836" expanded="true" signature="42986:43100" ph="INSERT INTO history... " />
-                <marker date="1519886315836" expanded="true" signature="44156:44265" ph="INSERT INTO history... " />
-                <marker date="1519886315836" expanded="true" signature="48284:48421" ph="INSERT INTO history... " />
-                <marker date="1519886315836" expanded="true" signature="50876:51013" ph="INSERT INTO history... " />
-                <marker date="1519886315836" expanded="true" signature="52644:52770" ph="INSERT INTO history... " />
-                <marker date="1519886315836" expanded="true" signature="55959:56087" ph="INSERT INTO history... " />
-                <marker date="1519886315836" expanded="true" signature="57924:58038" ph="INSERT INTO history... " />
-                <marker date="1519886315836" expanded="true" signature="58990:59108" ph="INSERT INTO history... " />
-                <marker date="1519886315836" expanded="true" signature="60070:60188" ph="INSERT INTO history... " />
-                <marker date="1519886315836" expanded="true" signature="61994:62108" ph="INSERT INTO history... " />
-                <marker date="1519886315836" expanded="true" signature="63524:63636" ph="INSERT INTO history... " />
-                <marker date="1519886315836" expanded="true" signature="65174:65289" ph="INSERT INTO history... " />
-                <marker date="1519886315836" expanded="true" signature="66804:66918" ph="INSERT INTO history... " />
-                <marker date="1519886315836" expanded="true" signature="70137:70251" ph="INSERT INTO history... " />
-                <marker date="1519886315836" expanded="true" signature="71520:71637" ph="INSERT INTO history... " />
-                <marker date="1519886315836" expanded="true" signature="73195:73306" ph="INSERT INTO history... " />
-                <marker date="1519886315836" expanded="true" signature="75550:75653" ph="SELECT * FRO... history" />
-                <marker date="1519886315836" expanded="true" signature="76126:76213" ph="UPDATE `history`... " />
-                <marker date="1519886315836" expanded="true" signature="76555:76655" ph="SELECT * FRO... history" />
-                <marker date="1519886315836" expanded="true" signature="77171:77258" ph="UPDATE `history`... " />
-                <marker date="1519886315836" expanded="true" signature="77592:77695" ph="SELECT * FRO... history" />
-                <marker date="1519886315836" expanded="true" signature="78220:78307" ph="UPDATE `history`... " />
-                <marker date="1519886315836" expanded="true" signature="78724:78750" ph="SELECT count... users" />
-                <marker date="1519886315836" expanded="true" signature="78834:78876" ph="SELECT * FRO... users" />
-                <marker date="1519886315836" expanded="true" signature="80416:80526" ph="INSERT INTO history... " />
-                <marker date="1519886315836" expanded="true" signature="80563:80594" ph="DELETE FROM users... " />
+                <marker date="1519893701054" expanded="true" signature="1050:1469" ph="CREATE TABLE... users" />
+                <marker date="1519893701054" expanded="true" signature="1116:1151" ph="/* Основная " />
+                <marker date="1519893701054" expanded="true" signature="1528:1754" ph="CREATE TABLE... settings" />
+                <marker date="1519893701054" expanded="true" signature="1596:1622" ph="/* Таблица к... " />
+                <marker date="1519893701054" expanded="true" signature="1813:2230" ph="CREATE TABLE... history" />
+                <marker date="1519893701054" expanded="true" signature="1880:1923" ph="/* Таблица д... " />
+                <marker date="1519893701054" expanded="true" signature="2289:2319" ph="/* Переход с... " />
+                <marker date="1519893701054" expanded="true" signature="2348:2408" ph="UPDATE `history`... " />
+                <marker date="1519893701054" expanded="true" signature="2703:2763" ph="ALTER TABLE `history`... " />
+                <marker date="1519893701054" expanded="true" signature="2848:2916" ph="ALTER TABLE `history`... " />
+                <marker date="1519893701054" expanded="true" signature="9307:9424" ph="INSERT INTO history... " />
+                <marker date="1519893701054" expanded="true" signature="14590:14616" ph="SELECT count... users" />
+                <marker date="1519893701054" expanded="true" signature="14700:14742" ph="SELECT * FRO... users" />
+                <marker date="1519893701054" expanded="true" signature="17465:17584" ph="INSERT INTO history... " />
+                <marker date="1519893701054" expanded="true" signature="17624:17662" ph="SELECT count... users" />
+                <marker date="1519893701054" expanded="true" signature="17744:17807" ph="INSERT INTO users... " />
+                <marker date="1519893701054" expanded="true" signature="17840:17989" ph="UPDATE `users`... " />
+                <marker date="1519893701054" expanded="true" signature="29829:29953" ph="INSERT INTO history... " />
+                <marker date="1519893701054" expanded="true" signature="42917:43031" ph="INSERT INTO history... " />
+                <marker date="1519893701054" expanded="true" signature="44087:44196" ph="INSERT INTO history... " />
+                <marker date="1519893701054" expanded="true" signature="48215:48352" ph="INSERT INTO history... " />
+                <marker date="1519893701054" expanded="true" signature="50807:50944" ph="INSERT INTO history... " />
+                <marker date="1519893701054" expanded="true" signature="52575:52701" ph="INSERT INTO history... " />
+                <marker date="1519893701054" expanded="true" signature="55890:56018" ph="INSERT INTO history... " />
+                <marker date="1519893701054" expanded="true" signature="57855:57969" ph="INSERT INTO history... " />
+                <marker date="1519893701054" expanded="true" signature="58921:59039" ph="INSERT INTO history... " />
+                <marker date="1519893701054" expanded="true" signature="60001:60119" ph="INSERT INTO history... " />
+                <marker date="1519893701054" expanded="true" signature="61925:62039" ph="INSERT INTO history... " />
+                <marker date="1519893701054" expanded="true" signature="63455:63567" ph="INSERT INTO history... " />
+                <marker date="1519893701054" expanded="true" signature="65105:65220" ph="INSERT INTO history... " />
+                <marker date="1519893701054" expanded="true" signature="66735:66849" ph="INSERT INTO history... " />
+                <marker date="1519893701054" expanded="true" signature="70068:70182" ph="INSERT INTO history... " />
+                <marker date="1519893701054" expanded="true" signature="71451:71568" ph="INSERT INTO history... " />
+                <marker date="1519893701054" expanded="true" signature="73126:73237" ph="INSERT INTO history... " />
+                <marker date="1519893701054" expanded="true" signature="75481:75584" ph="SELECT * FRO... history" />
+                <marker date="1519893701054" expanded="true" signature="76057:76144" ph="UPDATE `history`... " />
+                <marker date="1519893701054" expanded="true" signature="76486:76586" ph="SELECT * FRO... history" />
+                <marker date="1519893701054" expanded="true" signature="77102:77189" ph="UPDATE `history`... " />
+                <marker date="1519893701054" expanded="true" signature="77523:77626" ph="SELECT * FRO... history" />
+                <marker date="1519893701054" expanded="true" signature="78151:78238" ph="UPDATE `history`... " />
+                <marker date="1519893701054" expanded="true" signature="78655:78681" ph="SELECT count... users" />
+                <marker date="1519893701054" expanded="true" signature="78765:78807" ph="SELECT * FRO... users" />
+                <marker date="1519893701054" expanded="true" signature="80347:80457" ph="INSERT INTO history... " />
+                <marker date="1519893701054" expanded="true" signature="80494:80525" ph="DELETE FROM users... " />
               </folding>
             </state>
           </provider>
@@ -285,8 +285,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="PHP" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="500" />
-    <option name="y" value="23" />
+    <option name="x" value="469" />
+    <option name="y" value="39" />
     <option name="width" value="1920" />
     <option name="height" value="955" />
   </component>
@@ -495,12 +495,12 @@
       <workItem from="1519847236689" duration="1670000" />
       <workItem from="1519849758887" duration="225000" />
       <workItem from="1519885482287" duration="1434000" />
-      <workItem from="1519892274800" duration="105000" />
+      <workItem from="1519892274800" duration="1172000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="386940000" />
+    <option name="totallyTimeSpent" value="388007000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -512,7 +512,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="500" y="23" width="1920" height="955" extended-state="0" />
+    <frame x="469" y="39" width="1920" height="955" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -841,53 +841,53 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mainFunctions.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="365" column="11" lean-forward="true" selection-start-line="365" selection-start-column="11" selection-end-line="365" selection-end-column="11" />
+        <state relative-caret-position="504">
+          <caret line="379" column="0" lean-forward="true" selection-start-line="379" selection-start-column="0" selection-end-line="379" selection-end-column="0" />
           <folding>
-            <marker date="1519886315836" expanded="true" signature="1050:1469" ph="CREATE TABLE... users" />
-            <marker date="1519886315836" expanded="true" signature="1116:1151" ph="/* Основная " />
-            <marker date="1519886315836" expanded="true" signature="1528:1754" ph="CREATE TABLE... settings" />
-            <marker date="1519886315836" expanded="true" signature="1596:1622" ph="/* Таблица к... " />
-            <marker date="1519886315836" expanded="true" signature="1813:2230" ph="CREATE TABLE... history" />
-            <marker date="1519886315836" expanded="true" signature="1880:1923" ph="/* Таблица д... " />
-            <marker date="1519886315836" expanded="true" signature="2289:2319" ph="/* Переход с... " />
-            <marker date="1519886315836" expanded="true" signature="2348:2408" ph="UPDATE `history`... " />
-            <marker date="1519886315836" expanded="true" signature="2703:2763" ph="ALTER TABLE `history`... " />
-            <marker date="1519886315836" expanded="true" signature="2848:2916" ph="ALTER TABLE `history`... " />
-            <marker date="1519886315836" expanded="true" signature="9307:9424" ph="INSERT INTO history... " />
-            <marker date="1519886315836" expanded="true" signature="14590:14616" ph="SELECT count... users" />
-            <marker date="1519886315836" expanded="true" signature="14700:14742" ph="SELECT * FRO... users" />
-            <marker date="1519886315836" expanded="true" signature="17465:17584" ph="INSERT INTO history... " />
-            <marker date="1519886315836" expanded="true" signature="17624:17662" ph="SELECT count... users" />
-            <marker date="1519886315836" expanded="true" signature="17744:17807" ph="INSERT INTO users... " />
-            <marker date="1519886315836" expanded="true" signature="17840:17989" ph="UPDATE `users`... " />
-            <marker date="1519886315836" expanded="true" signature="29898:30022" ph="INSERT INTO history... " />
-            <marker date="1519886315836" expanded="true" signature="42986:43100" ph="INSERT INTO history... " />
-            <marker date="1519886315836" expanded="true" signature="44156:44265" ph="INSERT INTO history... " />
-            <marker date="1519886315836" expanded="true" signature="48284:48421" ph="INSERT INTO history... " />
-            <marker date="1519886315836" expanded="true" signature="50876:51013" ph="INSERT INTO history... " />
-            <marker date="1519886315836" expanded="true" signature="52644:52770" ph="INSERT INTO history... " />
-            <marker date="1519886315836" expanded="true" signature="55959:56087" ph="INSERT INTO history... " />
-            <marker date="1519886315836" expanded="true" signature="57924:58038" ph="INSERT INTO history... " />
-            <marker date="1519886315836" expanded="true" signature="58990:59108" ph="INSERT INTO history... " />
-            <marker date="1519886315836" expanded="true" signature="60070:60188" ph="INSERT INTO history... " />
-            <marker date="1519886315836" expanded="true" signature="61994:62108" ph="INSERT INTO history... " />
-            <marker date="1519886315836" expanded="true" signature="63524:63636" ph="INSERT INTO history... " />
-            <marker date="1519886315836" expanded="true" signature="65174:65289" ph="INSERT INTO history... " />
-            <marker date="1519886315836" expanded="true" signature="66804:66918" ph="INSERT INTO history... " />
-            <marker date="1519886315836" expanded="true" signature="70137:70251" ph="INSERT INTO history... " />
-            <marker date="1519886315836" expanded="true" signature="71520:71637" ph="INSERT INTO history... " />
-            <marker date="1519886315836" expanded="true" signature="73195:73306" ph="INSERT INTO history... " />
-            <marker date="1519886315836" expanded="true" signature="75550:75653" ph="SELECT * FRO... history" />
-            <marker date="1519886315836" expanded="true" signature="76126:76213" ph="UPDATE `history`... " />
-            <marker date="1519886315836" expanded="true" signature="76555:76655" ph="SELECT * FRO... history" />
-            <marker date="1519886315836" expanded="true" signature="77171:77258" ph="UPDATE `history`... " />
-            <marker date="1519886315836" expanded="true" signature="77592:77695" ph="SELECT * FRO... history" />
-            <marker date="1519886315836" expanded="true" signature="78220:78307" ph="UPDATE `history`... " />
-            <marker date="1519886315836" expanded="true" signature="78724:78750" ph="SELECT count... users" />
-            <marker date="1519886315836" expanded="true" signature="78834:78876" ph="SELECT * FRO... users" />
-            <marker date="1519886315836" expanded="true" signature="80416:80526" ph="INSERT INTO history... " />
-            <marker date="1519886315836" expanded="true" signature="80563:80594" ph="DELETE FROM users... " />
+            <marker date="1519893701054" expanded="true" signature="1050:1469" ph="CREATE TABLE... users" />
+            <marker date="1519893701054" expanded="true" signature="1116:1151" ph="/* Основная " />
+            <marker date="1519893701054" expanded="true" signature="1528:1754" ph="CREATE TABLE... settings" />
+            <marker date="1519893701054" expanded="true" signature="1596:1622" ph="/* Таблица к... " />
+            <marker date="1519893701054" expanded="true" signature="1813:2230" ph="CREATE TABLE... history" />
+            <marker date="1519893701054" expanded="true" signature="1880:1923" ph="/* Таблица д... " />
+            <marker date="1519893701054" expanded="true" signature="2289:2319" ph="/* Переход с... " />
+            <marker date="1519893701054" expanded="true" signature="2348:2408" ph="UPDATE `history`... " />
+            <marker date="1519893701054" expanded="true" signature="2703:2763" ph="ALTER TABLE `history`... " />
+            <marker date="1519893701054" expanded="true" signature="2848:2916" ph="ALTER TABLE `history`... " />
+            <marker date="1519893701054" expanded="true" signature="9307:9424" ph="INSERT INTO history... " />
+            <marker date="1519893701054" expanded="true" signature="14590:14616" ph="SELECT count... users" />
+            <marker date="1519893701054" expanded="true" signature="14700:14742" ph="SELECT * FRO... users" />
+            <marker date="1519893701054" expanded="true" signature="17465:17584" ph="INSERT INTO history... " />
+            <marker date="1519893701054" expanded="true" signature="17624:17662" ph="SELECT count... users" />
+            <marker date="1519893701054" expanded="true" signature="17744:17807" ph="INSERT INTO users... " />
+            <marker date="1519893701054" expanded="true" signature="17840:17989" ph="UPDATE `users`... " />
+            <marker date="1519893701054" expanded="true" signature="29829:29953" ph="INSERT INTO history... " />
+            <marker date="1519893701054" expanded="true" signature="42917:43031" ph="INSERT INTO history... " />
+            <marker date="1519893701054" expanded="true" signature="44087:44196" ph="INSERT INTO history... " />
+            <marker date="1519893701054" expanded="true" signature="48215:48352" ph="INSERT INTO history... " />
+            <marker date="1519893701054" expanded="true" signature="50807:50944" ph="INSERT INTO history... " />
+            <marker date="1519893701054" expanded="true" signature="52575:52701" ph="INSERT INTO history... " />
+            <marker date="1519893701054" expanded="true" signature="55890:56018" ph="INSERT INTO history... " />
+            <marker date="1519893701054" expanded="true" signature="57855:57969" ph="INSERT INTO history... " />
+            <marker date="1519893701054" expanded="true" signature="58921:59039" ph="INSERT INTO history... " />
+            <marker date="1519893701054" expanded="true" signature="60001:60119" ph="INSERT INTO history... " />
+            <marker date="1519893701054" expanded="true" signature="61925:62039" ph="INSERT INTO history... " />
+            <marker date="1519893701054" expanded="true" signature="63455:63567" ph="INSERT INTO history... " />
+            <marker date="1519893701054" expanded="true" signature="65105:65220" ph="INSERT INTO history... " />
+            <marker date="1519893701054" expanded="true" signature="66735:66849" ph="INSERT INTO history... " />
+            <marker date="1519893701054" expanded="true" signature="70068:70182" ph="INSERT INTO history... " />
+            <marker date="1519893701054" expanded="true" signature="71451:71568" ph="INSERT INTO history... " />
+            <marker date="1519893701054" expanded="true" signature="73126:73237" ph="INSERT INTO history... " />
+            <marker date="1519893701054" expanded="true" signature="75481:75584" ph="SELECT * FRO... history" />
+            <marker date="1519893701054" expanded="true" signature="76057:76144" ph="UPDATE `history`... " />
+            <marker date="1519893701054" expanded="true" signature="76486:76586" ph="SELECT * FRO... history" />
+            <marker date="1519893701054" expanded="true" signature="77102:77189" ph="UPDATE `history`... " />
+            <marker date="1519893701054" expanded="true" signature="77523:77626" ph="SELECT * FRO... history" />
+            <marker date="1519893701054" expanded="true" signature="78151:78238" ph="UPDATE `history`... " />
+            <marker date="1519893701054" expanded="true" signature="78655:78681" ph="SELECT count... users" />
+            <marker date="1519893701054" expanded="true" signature="78765:78807" ph="SELECT * FRO... users" />
+            <marker date="1519893701054" expanded="true" signature="80347:80457" ph="INSERT INTO history... " />
+            <marker date="1519893701054" expanded="true" signature="80494:80525" ph="DELETE FROM users... " />
           </folding>
         </state>
       </provider>

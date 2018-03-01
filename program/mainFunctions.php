@@ -378,8 +378,6 @@ class mainFunctions {
             $this->config->save();
         }
 
-        print_r( $this->vk->method("audio.get", ["confirm"=>1]  ));
-
         stringUtils::msg( "\nЗдравствуйте, " . stringUtils::color( $userInfo->first_name,
                 ForegroundColors::LIGHT_CYAN ) . "!", MsgTypes::NEUTRAL );
 

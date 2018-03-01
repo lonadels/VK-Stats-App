@@ -11,7 +11,7 @@
 
 ### Build
 * Run **compile.bat**
-* Build will be in folder "build ymd.Hi" and "site" (for auto-update)
+* Build will be in folder "build" and "site" (for auto-update)
 * Profit! :)
 
 ### Run ###

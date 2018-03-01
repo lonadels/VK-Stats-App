@@ -1,8 +1,8 @@
 # VK-Stats-App
  
 ![PHP 7.2.2](https://img.shields.io/badge/PHP-7.2.2-lightgray.svg?longCache=true&style=flat)
-![Release 1.0.9.1](https://img.shields.io/badge/release-v1.0.9.1-blue.svg?longCache=true&style=flat)
-![Dev 1.1-Pre15](https://img.shields.io/badge/dev-v1.1--Pre15-orange.svg?longCache=true&style=flat) 
+![Release 1.1](https://img.shields.io/badge/release-v1.1-blue.svg?longCache=true&style=flat)
+![Dev 1.1.1-Pre1](https://img.shields.io/badge/dev-v1.1.1--Pre1-orange.svg?longCache=true&style=flat) 
 
 ### Requirements
 * **Only for Windows!**

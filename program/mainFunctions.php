@@ -234,7 +234,14 @@ class mainFunctions {
         stringUtils::msg( "\nVK Stats App", MsgTypes::NEUTRAL, 1, ForegroundColors::LIGHT_CYAN );
         stringUtils::msg( " - приложение, позволяющее производить массовые операции\nнад страницей или получать различную статистику.", MsgTypes::NEUTRAL );
 
-        stringUtils::msg( "\nВерсия " . stringUtils::color( implode( ".", str_split( APP_VER ) ) . ( PRE_BUILD ? "-Pre" . PRE_BUILD : "" ), ForegroundColors::LIGHT_CYAN ), MsgTypes::NEUTRAL, 1, ForegroundColors::DARK_GRAY );
+        $appVer = str_split(APP_VER );
+
+        if( $appVer[2] == 0 && $appVer[3] == 0 ) unset($appVer[2]);
+        if( $appVer[3] == 0 ) unset($appVer[3]);
+
+        $appVer = implode( '.', $appVer );
+
+        stringUtils::msg( "\nВерсия " . stringUtils::color( $appVer . ( PRE_BUILD ? "-Pre" . PRE_BUILD : "" ), ForegroundColors::LIGHT_CYAN ), MsgTypes::NEUTRAL, 1, ForegroundColors::DARK_GRAY );
         stringUtils::msg( "; Сборка " . stringUtils::color( APP_BUILD, ForegroundColors::LIGHT_CYAN ), MsgTypes::NEUTRAL, 0, ForegroundColors::DARK_GRAY );
 
         if( PRE_BUILD )

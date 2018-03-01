@@ -12,7 +12,14 @@
 ### Build
 * Run **compile.bat**
 * Build will be in folder "build" and "site" (for auto-update)
-* Profit! :)
+
+###### SFX-Archive #####
+```
+   Path=VKStatsApp
+   Silent=2
+   Overwrite=1
+   Shortcut=D, "php.exe -f program/main.php", , , VKStatsApp.lnk, vk.ico
+```
 
 ### Run ###
 * Start CMD with `php.exe -f program/main.php`

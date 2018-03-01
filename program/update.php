@@ -10,7 +10,7 @@
 
 define( "APP_VER", 1100 );
 define( "APP_BUILD", 0 );
-define( "PRE_BUILD", 11 );
+define( "PRE_BUILD", 12 );
 define( "DEBUG", FALSE );
 
 function checkUpdate( $forceMsg = 0 ) {

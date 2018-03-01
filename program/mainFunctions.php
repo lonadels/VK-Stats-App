@@ -700,6 +700,17 @@ class mainFunctions {
             "Граффити" => "graffiti"
         ];
 
+        $doctype = [
+            "Текстовые",
+            "Архивы",
+            "GIF",
+            "Изображений",
+            "Аудио",
+            "Видео",
+            "Электронные книги",
+            "Другое"
+        ];
+
         $this->dialogAnalyze( $id, function( $item, $messCount, $offset ) use (
             &$stats, &$firstDate, &$date, &$allWords,
             &$photos, &$offset2, &$atts
@@ -758,7 +769,10 @@ class mainFunctions {
                         ];
                     }
 
-                    $atts[ $att->type ]++;
+                    if( $att->type == 'doc' )
+                        $atts[ $att->type ][ $att->doc->type ]++;
+                    else
+                        $atts[ $att->type ]++;
                 }
 
             foreach( $words as $word )
@@ -773,10 +787,10 @@ class mainFunctions {
                 $lmct = round( $mct );
             }
 
-            $names = [ "с", "м","ч", "д", "мес", "год" ];
+            $names = [ "с", "м", "ч", "д", "мес", "год" ];
 
             $times2 = stringUtils::seconds2times( (int) $times );
-            $mct2 = stringUtils::seconds2times( round($mct) );
+            $mct2 = stringUtils::seconds2times( round( $mct ) );
 
             $timeLeft = $mct3 = "";
 
@@ -872,12 +886,27 @@ class mainFunctions {
                 print $text;
 
 
-        print stringUtils::color( "Вложения:", ForegroundColors::LIGHT_CYAN );
-        foreach( $types as $type => $var )
-            print "\n" . stringUtils::color( "$type: ", ForegroundColors::DARK_GRAY ) . ( ( $atts[ $var ] ) ?
-                    number_format( $atts[ $var ], 0, '.', ' ' ) : 0 );
+        if( ! empty($atts) ) {
+            print stringUtils::color( "Вложения:", ForegroundColors::LIGHT_CYAN );
+            foreach( $types as $type => $var )
+                if( $var != 'doc' && $atts[ $var ] > 0 )
+                    print "\n" . stringUtils::color( "$type: ", ForegroundColors::DARK_GRAY ) . ( ( $atts[ $var ] ) ?
+                            number_format( $atts[ $var ], 0, '.', ' ' ) : 0 );
+            print "\n\n";
+        }
 
-        print "\n\n";
+
+
+        if( ! empty($atts['doc']) ) {
+            print stringUtils::color( "Документы:", ForegroundColors::LIGHT_CYAN );
+            foreach( $doctype as $type => $text )
+                if( $atts[ 'doc' ][ $type ] > 0 )
+                    print "\n" . stringUtils::color( "$text: ", ForegroundColors::DARK_GRAY ) . ( ( $atts[ 'doc' ][ $type ] ) ?
+                            number_format( $atts[ 'doc' ][ $type ], 0, '.', ' ' ) : 0 );
+            print "\n\n";
+        }
+
+
 
         if( stringUtils::ask( "Отобразить топ слов?" ) ) {
             print stringUtils::color( "\nТоп слов:\n", ForegroundColors::LIGHT_CYAN );

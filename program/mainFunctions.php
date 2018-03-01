@@ -859,10 +859,10 @@ class mainFunctions {
 
                 for( $i = count( $times ) - 1; $i >= 0; $i-- )
                     $durability .= ( $i == 0 && $sec > 60 ? "и " : NULL ) . "$times[$i] " . stringUtils::declOfNum( $times[ $i ], $names[ $i ] ) . " ";
-                $usr[ $data[ 'count' ] ][] = stringUtils::color( "\n" . ( in_array( $uid, $chatUsers ) ? "Общается" : "Общал" . ( is_object( $userNames[ array_search( $id, array_keys( $stats ) ) ] ) ? ( $userNames[ array_search( $id, array_keys( $stats ) ) ]->sex === 1 ? "ась" : "ся" ) : "ся(-ась)" ) ) . ": ", ForegroundColors::DARK_GRAY ) . $durability;
+                $usr[ $data[ 'count' ] ][] = stringUtils::color( "\n" . ( in_array( $uid, $chatUsers ) ? "Общается" : "Общал" . ( is_object( $userNames[ array_search( $uid, array_keys( $stats ) ) ] ) ? ( $userNames[ array_search( $uid, array_keys( $stats ) ) ]->sex === 1 ? "ась" : "ся" ) : "ся(-ась)" ) ) . ": ", ForegroundColors::DARK_GRAY ) . $durability;
             }
 
-            $usr[ $data[ 'count' ] ][] = stringUtils::color( "\nПереслал" . ( is_object( $userNames[ array_search( $id, array_keys( $stats ) ) ] ) ? ( $userNames[ array_search( $id, array_keys( $stats ) ) ]->sex === 1 ? "а" : "" ) : "(а)" ) . " сообщений: ", ForegroundColors::DARK_GRAY ) . number_format( $data[ 'fwd' ], 0, ".", " " ) . "";
+            $usr[ $data[ 'count' ] ][] = stringUtils::color( "\nПереслал" . ( is_object( $userNames[ array_search( $uid, array_keys( $stats ) ) ] ) ? ( $userNames[ array_search( $uid, array_keys( $stats ) ) ]->sex === 1 ? "а" : "" ) : "(а)" ) . " сообщений: ", ForegroundColors::DARK_GRAY ) . number_format( $data[ 'fwd' ], 0, ".", " " ) . "";
             $usr[ $data[ 'count' ] ][] = "\n\n";
         }
 

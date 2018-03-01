@@ -8,9 +8,9 @@
 
 /* VERSION INFO */
 
-define( "APP_VER", 1100 );
+define( "APP_VER", 1110 );
 define( "APP_BUILD", 0 );
-define( "PRE_BUILD", 15 );
+define( "PRE_BUILD", 1 );
 define( "DEBUG", FALSE );
 
 function checkUpdate( $forceMsg = 0 ) {

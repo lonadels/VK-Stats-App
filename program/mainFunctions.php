@@ -716,10 +716,10 @@ class mainFunctions {
 
             $date = $item->date;
 
-            if( ! empty( $item->body ) ) {
-                $stats[ $item->from_id ][ 'count' ]++;
+            $stats[ $item->from_id ][ 'count' ]++;
+
+            if( ! empty( $item->body ) )
                 $stats[ $item->from_id ][ 'symbols' ] += mb_strlen( $item->body );
-            }
 
             $stats[ $item->from_id ][ 'uWords' ] += count( $words );
 

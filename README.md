@@ -1,17 +1,22 @@
 # VK-Stats-App
+ 
+![PHP 7.2.2](https://img.shields.io/badge/PHP-7.2.2-lightgray.svg?longCache=true&style=flat)
+![Release 1.0.9.1](https://img.shields.io/badge/release-v1.0.9.1-blue.svg?longCache=true&style=flat)
+![Dev 1.1](https://img.shields.io/badge/dev-v1.1--Pre11-orange.svg?longCache=true&style=flat) 
+![build 180228.2324](https://img.shields.io/badge/build-180228.2324-lightgray.svg?longCache=true&style=flat)
 
 ### Requirements
 * **Only for Windows!**
 * Windows 7 and above (Recommended **Windows 10**)
 * [Visual C++ Redistributable Pack 14](https://microsoft.com/en-gb/download/details.aspx?id=48145)
 
-### How to build it?
+### Build
 * Run **compile.bat**
 * Build will be in folder "build ymd.Hi" and "site" (for auto-update)
 * Profit! :)
 
 ### Run ###
-* Run `php.exe -f program/main.php`
+* Start CMD with `php.exe -f program/main.php`
 * Or run **appStats.bat** in main folder
 
 ### Links

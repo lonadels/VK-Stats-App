@@ -868,22 +868,26 @@ class mainFunctions {
         if( ! stringUtils::ask( stringUtils::color( "\n\nОчистить диалоги?", ForegroundColors::LIGHT_RED ) ) )
             return;
 
-        $count = 0;
-        while( TRUE ) {
+        $count = $deleted = 0;
+        while( ! isset($totalCount) || $count < $totalCount ) {
             $dialogs = $this->vk->method( "messages.getDialogs", [ "offset" => (int) $count, "count" => 200 ] )->response;
             if( empty( $dialogs->items ) ) break;
             $totalCount = $dialogs->count;
             foreach( $dialogs->items as $item ) {
                 $count++;
+                if( $onlyFriends && $this->vk->method("users.get", ['user_ids', 'fields'=>'is_friend'])
+                        ->response[0]->is_friend ) continue;
+
                 $peer_id = ( isset( $item->message->chat_id ) ) ? 2000000000 + $item->message->chat_id : $item->message->user_id;
                 print "\rУдаляем $peer_id ($count/$totalCount)...";
                 $args[ "peer_id" ] = $peer_id;
                 $this->vk->method( "messages.deleteDialog", $args );
                 $this->db->query( "INSERT INTO history (owner_id, item_id, type, time) VALUES ({$this->vk->uid}, $peer_id, 'dialogs', " . time() . ")" );
+                $deleted++;
             }
             $count++;
         }
-        stringUtils::beep( "\rОперация завершена. " . stringUtils::declOfNum( $count, [ "Удалён", "Удалено", "Удалено" ] ) . stringUtils::color( " $count " . stringUtils::declOfNum( $count, [ "диалог", "диалога", "диалогов" ] ), ForegroundColors::LIGHT_CYAN ) );
+        stringUtils::beep( "\rОперация завершена. " . stringUtils::declOfNum( $deleted, [ "Удалён", "Удалено", "Удалено" ] ) . stringUtils::color( " $count " . stringUtils::declOfNum( $count, [ "диалог", "диалога", "диалогов" ] ), ForegroundColors::LIGHT_CYAN ) );
         unset( $dialogs );
     }
 

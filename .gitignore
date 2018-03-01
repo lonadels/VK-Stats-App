@@ -2,3 +2,7 @@ program/.idea/*
 program/.idea
 .idea/*
 .idea
+build/*
+build
+site/*
+site

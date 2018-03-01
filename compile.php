@@ -5,7 +5,7 @@ function start() {
 
     $appDir = "program";
     $build = BUILD_TIME;
-    $buildDir = "build $build";
+    $buildDir = "build";
 
     $files[ 'ext' ] = [ "com_dotnet", "curl", "mbstring", "sqlite3" ];
     $files[ 'lib' ] = [ "libcrypto-1_1", "libcrypto-1_1-x64", "libssh2", "libssl-1_1", "libssl-1_1-x64", "nghttp2", "php7ts" ];

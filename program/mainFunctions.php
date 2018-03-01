@@ -571,7 +571,7 @@ class mainFunctions {
     public function deleteMessages() {
         $num = $this->actionMenu( [
             "Обычная очистка" => "Обычная очистка всех сообщений в диалоге",
-            "Очистка за сутки" => "Очистка своих сообщений для всех пользователей в диалоге за последние 24 часа",
+            "Очистка за сутки" => "Очистка своих сообщений для обеих пользователей за последние 24 часа",
             "Очистка по дате" => "Очистка сообщений в диалоге до определённой даты",
             "Отмена" => "Возврат в главное меню программы"
         ], FALSE, TRUE );
@@ -590,11 +590,11 @@ class mainFunctions {
         if( ! stringUtils::ask( stringUtils::color( "Действительно очистить диалог?", ForegroundColors::LIGHT_RED ) ) ) return;
 
         $this->dialogAnalyze( $id, function( $item, $offset ) use ( &$date, &$idsForDelete, $num ) {
+            if( $num === 3 && $item->date > $date || ( $num === 2 && $item->date <= strtotime( "-23 hours" ) ) )
+                return;
+
             if( $num === 3 && $item->date < $date || $num === 1 || ( $num === 2 && $item->from_id == $this->vk->uid && $item->date >= strtotime( "-23 hours" ) ) )
                 $idsForDelete[] = $item;
-
-            //if( $num === 3 && $item->date > $date || ( $num === 2 && $item->date <= strtotime( "-23 hours" ) ) )
-            //    return;
 
             stringUtils::preloader( "Анализ сообщений $offset..." );
         } );
@@ -863,7 +863,9 @@ class mainFunctions {
         stringUtils::msg( "  Диалоги начнут удаляться " . stringUtils::color( "сразу", ForegroundColors::LIGHT_GRAY ) . ", после подтверждения действия\n", MsgTypes::NEUTRAL );
         print stringUtils::color( str_repeat( "=", stringUtils::getWidth() ), ForegroundColors::DARK_GRAY );
 
-        if( ! stringUtils::ask( stringUtils::color( "\n\nОчистить ВСЕ диалоги?", ForegroundColors::LIGHT_RED ) ) )
+        $onlyFriends = stringUtils::ask("Оставить только диалоги с друзьями?");
+
+        if( ! stringUtils::ask( stringUtils::color( "\n\nОчистить диалоги?", ForegroundColors::LIGHT_RED ) ) )
             return;
 
         $count = 0;
@@ -979,7 +981,7 @@ class mainFunctions {
                                     $deleted++;
                                     $body = $this->db->escapeString( base64_encode( json_encode( $commentItem ) ) );
                                     $this->vk->method( "wall.deleteComment", [ "owner_id" => $item->owner_id, "comment_id" => $commentItem->id ] );
-                                    $this->db->query( "INSERT INTO history (owner_id, item_id, body, type, time) VALUES ({$this->vk->uid}, $commentItem->id, '$body', 'comment', " . time() . ")" );
+                                    $this->db->query( "INSERT INTO history (owner_id, item_id, body, type, time) VALUES ({$this->vk->uid}, $commentItem->id, '$body', 'commentWall', " . time() . ")" );
                                 }
                                 $commentsCount++;
                             }
@@ -1027,7 +1029,7 @@ class mainFunctions {
                         $body = $this->db->escapeString( base64_encode( json_encode( $commentItem ) ) );
                         $this->vk->method( "$method.deleteComment", [ "owner_id" => $target->owner_id, "comment_id"
                         => $commentItem->id ] );
-                        $this->db->query( "INSERT INTO history (owner_id, item_id, body, type, time) VALUES ({$this->vk->uid}, $commentItem->id, '$body', 'comment', " . time() . ")" );
+                        $this->db->query( "INSERT INTO history (owner_id, item_id, body, type, time) VALUES ({$this->vk->uid}, $commentItem->id, '$body', 'comment$linkSuffix', " . time() . ")" );
                     }
                     $commentsCount++;
                 }
@@ -1545,14 +1547,15 @@ class mainFunctions {
                 break;
 
             case 3:
-                $res = $this->db->query( "SELECT * FROM `history` WHERE `type` = 'comment' AND `owner_id` = {$this->vk->uid} AND `repair` IS NULL" );
+                $res = $this->db->query( "SELECT * FROM `history` WHERE ( `type` = 'comment' OR `type` = 'commentphoto' OR `type` = 'commentpost' OR `type` = 'commentWall' ) AND `owner_id` = {$this->vk->uid} AND `repair` IS NULL" );
                 $restore = 0;
 
                 if( ! empty( $res ) )
                     while( $row = $res->fetchArray( SQLITE3_ASSOC ) ) {
+                        $method = preg_match( "/photo/", $row['type'] ) ? "photos" : "wall";
                         stringUtils::msg( "\rВосстановление {$row['owner_id']}_{$row["item_id"]}", MsgTypes::NEUTRAL, 1 );
 
-                        $result = $this->vk->method( "wall.restoreComment", [ "owner_id" => $row[ 'owner_id' ], "comment_id" => $row[ 'item_id' ] ] )->response;
+                        $result = $this->vk->method( "$method.restoreComment", [ "owner_id" => $row[ 'owner_id' ], "comment_id" => $row[ 'item_id' ] ] )->response;
 
                         if( $result === 1 ) {
                             $this->db->query( "UPDATE `history` SET `repair` = 1 WHERE `item_id` = {$row["item_id"]} AND `owner_id` = {$this->vk->uid}" );

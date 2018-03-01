@@ -9,7 +9,12 @@ foreach($includes as $include)
 global $mf;
 $mf = new mainFunctions();
 
-$ver = implode( '.', str_split(APP_VER ) );
+$appVer = str_split(APP_VER );
+
+if( $appVer[2] == 0 && $appVer[3] == 0 ) unset($appVer[2]);
+if( $appVer[3] == 0 ) unset($appVer[3]);
+
+$ver = implode( '.', $appVer );
 $title = "VK STATS APP";
 
 $width = stringUtils::getWidth();

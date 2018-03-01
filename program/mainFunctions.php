@@ -234,10 +234,10 @@ class mainFunctions {
         stringUtils::msg( "\nVK Stats App", MsgTypes::NEUTRAL, 1, ForegroundColors::LIGHT_CYAN );
         stringUtils::msg( " - приложение, позволяющее производить массовые операции\nнад страницей или получать различную статистику.", MsgTypes::NEUTRAL );
 
-        $appVer = str_split(APP_VER );
+        $appVer = str_split( APP_VER );
 
-        if( $appVer[2] == 0 && $appVer[3] == 0 ) unset($appVer[2]);
-        if( $appVer[3] == 0 ) unset($appVer[3]);
+        if( $appVer[ 2 ] == 0 && $appVer[ 3 ] == 0 ) unset( $appVer[ 2 ] );
+        if( $appVer[ 3 ] == 0 ) unset( $appVer[ 3 ] );
 
         $appVer = implode( '.', $appVer );
 
@@ -705,6 +705,9 @@ class mainFunctions {
             &$photos, &$offset2, &$atts
         ) {
 
+            static $lasttime, $times, $lmct;
+            if( ! isset( $lasttime ) ) $lasttime = microtime( 1 );
+
             $offset2 = $offset;
             $words = explode( " ", $item->body );
 
@@ -762,7 +765,32 @@ class mainFunctions {
                 if( trim( $word ) )
                     $allWords[ mb_strtolower( trim( $word ) ) ]++;
 
-            stringUtils::preloader( "Сообщение $offset/$messCount (" . round( $offset * 100 / $messCount ) . "%)..." );
+            $mct = microtime( 1 ) - $lasttime;
+            $oneMsg = $mct / $offset;
+
+            if( round( $mct ) != $lmct ) {
+                $times = $mct > 0 ? round( $oneMsg * ( $messCount - $offset ) ) : 0;
+                $lmct = round( $mct );
+            }
+
+            $names = [ "с", "м","ч", "д", "мес", "год" ];
+
+            $times2 = stringUtils::seconds2times( (int) $times );
+            $mct2 = stringUtils::seconds2times( round($mct) );
+
+            $timeLeft = $mct3 = "";
+
+            for( $i = count( $times2 ) - 1; $i >= 0; $i-- )
+                $timeLeft .= " $times2[$i]$names[$i]";
+
+            for( $i = count( $mct2 ) - 1; $i >= 0; $i-- )
+                $mct3 .= " $mct2[$i]$names[$i]";
+
+
+            $percent = round( $offset * 100 / $messCount );
+            $count = "\r$percent% | Анализ " . number_format( $offset, 0, ".", " " ) . " из " . number_format( $messCount, 0, ".", " " ) . "; Прошло$mct3; Осталось примерно$timeLeft";
+
+            print( $count );
         } );
 
         stringUtils::beep();
@@ -870,20 +898,20 @@ class mainFunctions {
         stringUtils::msg( "  Диалоги начнут удаляться " . stringUtils::color( "сразу", ForegroundColors::LIGHT_GRAY ) . ", после подтверждения действия\n", MsgTypes::NEUTRAL );
         print stringUtils::color( str_repeat( "=", stringUtils::getWidth() ), ForegroundColors::DARK_GRAY );
 
-        $onlyFriends = stringUtils::ask("Оставить только диалоги с друзьями?");
+        $onlyFriends = stringUtils::ask( "Оставить только диалоги с друзьями?" );
 
         if( ! stringUtils::ask( stringUtils::color( "\n\nОчистить диалоги?", ForegroundColors::LIGHT_RED ) ) )
             return;
 
         $count = $deleted = 0;
-        while( ! isset($totalCount) || $count < $totalCount ) {
+        while( ! isset( $totalCount ) || $count < $totalCount ) {
             $dialogs = $this->vk->method( "messages.getDialogs", [ "offset" => (int) $count, "count" => 200 ] )->response;
             if( empty( $dialogs->items ) ) break;
             $totalCount = $dialogs->count;
             foreach( $dialogs->items as $item ) {
                 $count++;
-                if( $onlyFriends && $this->vk->method("users.get", ['user_ids', 'fields'=>'is_friend'])
-                        ->response[0]->is_friend ) continue;
+                if( $onlyFriends && $this->vk->method( "users.get", [ 'user_ids', 'fields' => 'is_friend' ] )
+                        ->response[ 0 ]->is_friend ) continue;
 
                 $peer_id = ( isset( $item->message->chat_id ) ) ? 2000000000 + $item->message->chat_id : $item->message->user_id;
                 print "\rУдаляем $peer_id ($count/$totalCount)...";
@@ -1563,7 +1591,7 @@ class mainFunctions {
 
                 if( ! empty( $res ) )
                     while( $row = $res->fetchArray( SQLITE3_ASSOC ) ) {
-                        $method = preg_match( "/photo/", $row['type'] ) ? "photos" : "wall";
+                        $method = preg_match( "/photo/", $row[ 'type' ] ) ? "photos" : "wall";
                         stringUtils::msg( "\rВосстановление {$row['owner_id']}_{$row["item_id"]}", MsgTypes::NEUTRAL, 1 );
 
                         $result = $this->vk->method( "$method.restoreComment", [ "owner_id" => $row[ 'owner_id' ], "comment_id" => $row[ 'item_id' ] ] )->response;

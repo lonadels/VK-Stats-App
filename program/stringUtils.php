@@ -244,6 +244,11 @@ class stringUtils {
         return $coloredString;
     }
 
+    public static function fileExt($file){
+        $expName = explode('.', $file);
+        return $expName[count($expName)-1];
+    }
+
     public static function baseNameNoExt( $file ) {
         $file = explode( '.', $file );
         unset( $file[ count( $file ) - 1 ] );

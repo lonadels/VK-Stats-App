@@ -114,7 +114,7 @@ class mainFunctions {
             "Лайкнуть всю стену" => [ "likeAll", "Поставить лайки на все записи сообщества или пользователя" ],
             //"Анализ стены" => [ "parseWall", "Найти лайки определённого пользователя на стене пользователя/группы" ],
             //"Анализ альбома" => [ "parseAlbum", "Поиск лайков всех или определённого пользователя в альбоме" ],
-            //"Сохранить диалог" => [ "dialogDump", "Полное сохранение диалога в файл" ],
+            "Сохранить диалог" => [ "dialogDump", "Полное сохранение диалога в файл" ],
             //"Добавить из поиска" => [ "addFromSearch", "Добавить друзей из поиска" ],
             //"Парсинг диалога" => [ "dialogParse", "Анализ и сохранение вложений из диалога" ],
             //"Управление сообществом"=>["groupControl", "Функции для работы с администратируемыми сообществами"],
@@ -631,19 +631,43 @@ class mainFunctions {
         $id = $this->selectDialog();
         $i = 0;
 
-        while( ! isset( $messCount ) or $i < $messCount ) {
-            $dialogResult = $this->vk->method( "messages.getHistory", [ "peer_id" => $id, "rev" => 1, "count" => 200, "offset" => $i ] )->response;
-            $messCount = $dialogResult->count;
+        $this->dialogAnalyze( $id, function( $item, $messCount, $offset ) use ( &$photos ) {
+            if( $item->attachments )
+                foreach( $item->attachments as $att ) {
+                    if( $att->type == 'photo' ) {
+                        if( ! $name = $att->photo->photo_2560 )
+                            if( ! $name = $att->photo->photo_1280 )
+                                if( ! $name = $att->photo->photo_807 )
+                                    if( ! $name = $att->photo->photo_604 )
+                                        if( ! $name = $att->photo->photo_130 )
+                                            $name = $att->photo->photo_75;
 
-            if( empty( $dialogResult->items ) ) continue;
+                        $photos[] = [
+                            "name" => $name,
+                            "id" => $item->from_id,
+                            "date" => $att->photo->date
+                        ];
+                    }
+                }
+            print "\r$offset/$messCount сообщений";
+        } );
 
-            foreach( $dialogResult->items as $item ) {
-                $i++;
-                $messages[ $item->id ][ "from_id" ] = $item->from_id;
-                $messages[ $item->id ][ "body" ] = $item->body;
-                stringUtils::preloader( "Анализ сообщений $i/$messCount (" . round( $i * 100 / $messCount ) . "%)..." );
-            }
+        $dir = "photos".$id;
+
+        if( ! is_dir($dir) )
+            mkdir($dir);
+
+        $c = count($photos);
+
+        foreach( $photos as $i => $photo ) {
+            $name = "$dir/" . date( "Y.m.d H-i-s ", $photo[ 'date' ] ) . $photo[ 'id' ] . ".png";
+            print "\r$i/$c фото";
+            if( file_exists($name) ) continue;
+
+            file_put_contents( $name, stringUtils::get_curl( $photo[ 'name' ] ) );
+            touch($name, $photo[ 'date' ]);
         }
+
     }
 
     public function dialogAnalyze( $id, $function ) {
@@ -886,7 +910,7 @@ class mainFunctions {
                 print $text;
 
 
-        if( ! empty($atts) ) {
+        if( ! empty( $atts ) ) {
             print stringUtils::color( "Вложения:", ForegroundColors::LIGHT_CYAN );
             foreach( $types as $type => $var )
                 if( $var != 'doc' && $atts[ $var ] > 0 )
@@ -896,8 +920,7 @@ class mainFunctions {
         }
 
 
-
-        if( ! empty($atts['doc']) ) {
+        if( ! empty( $atts[ 'doc' ] ) ) {
             print stringUtils::color( "Документы:", ForegroundColors::LIGHT_CYAN );
             foreach( $doctype as $type => $text )
                 if( $atts[ 'doc' ][ $type ] > 0 )
@@ -905,7 +928,6 @@ class mainFunctions {
                             number_format( $atts[ 'doc' ][ $type ], 0, '.', ' ' ) : 0 );
             print "\n\n";
         }
-
 
 
         if( stringUtils::ask( "Отобразить топ слов?" ) ) {
@@ -979,7 +1001,7 @@ class mainFunctions {
     public function sendVoice() {
         $id = $this->selectDialog();
         while( ! isset( $file ) || ! file_exists( $file ) ) {
-            $file = stringUtils::readLn( "Путь до OGG файла:" );
+            $file = stringUtils::readLn( "Путь до MP3 или OGG файла:" );
             if( ! file_exists( $file ) ) {
                 stringUtils::msg( "Файл не существует!", MsgTypes::NEUTRAL, 0, ForegroundColors::LIGHT_RED );
                 stringUtils::msg( "Проверьте правильность указанного пути", MsgTypes::NEUTRAL, 0, ForegroundColors::DARK_GRAY );
@@ -1508,6 +1530,19 @@ class mainFunctions {
 
         unset( $matthew );
 
+    }
+
+    public function clearVideo() {
+        if( ! stringUtils::ask( "Удалить все видеозаписи?" ) ) return;
+
+        $offset = 0;
+        while( ! isset( $allCount ) || $offset < $allCount ) {
+            $videos = $this->vk->method( "video.get", [ "offset" => $offset, "count" => 200 ] );
+            $allCount = $videos->response->count;
+            foreach( $videos as $video ) {
+
+            }
+        }
     }
 
     public function clearDocs() {

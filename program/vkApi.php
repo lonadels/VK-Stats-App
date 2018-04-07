@@ -149,7 +149,9 @@ class vkApi {
         $params[ "access_token" ] = $this->token;
         $params[ "v" ] = $this->v;
 
-        if( $response = stringUtils::get_curl( $this->methodUrl . $method . "?" . http_build_query( $params ) ) ) {
+		$url = $this->methodUrl . $method . "?" . http_build_query( $params );
+
+        if( $response = stringUtils::get_curl( $url ) ) {
             $response = json_decode( $response );
             if( isset( $response->error ) and $response->error->error_code == 14 ) {
                 file_put_contents( APP_DIR . "captcha.jpg", stringUtils::get_curl( $response->error->captcha_img ) );
